@@ -7,10 +7,13 @@ Exam Registration System is an interface between the Student and the Exam Contro
 * Java
 * Javascript
 
-### Web development 
+### Front-end Web development 
 * HTML5
 * CSS
+
+### Back-end Web development
 * AJAX
+* Servlet Programming
 
 ## Output Snapshots
 
