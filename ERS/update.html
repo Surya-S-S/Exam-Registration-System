@@ -1,0 +1,29 @@
+<html>    
+<head>
+    <style>
+        h2{margin-top:150px;}		
+        form{width:350px;border-radius:20px;}
+        .button{width:25%;}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Exam Registration System</h2>
+    <h3>Update Course</h3>
+	<form method="post" action="http://localhost:8080/ERS/retrieve">
+        <label for="cid">Course Code</label>
+        <input class="field" pattern="[A-Z0-9]{5,10}" type="text" id="cid" name="cid" required>
+        <br><br><label for="ldor">Registration Due</label>
+        <input class="field" type="date" id="ldor" name="ldor">
+        <br><br><label for="sdate">Exam Start date</label>
+        <input class="field" type="date" id="sdate" name="sdate">
+        <br><br><label for="edate">Exam End date</label>
+        <input class="field" type="date" id="edate" name="edate">
+        <br><br>
+        <center>
+            <button class="button" type="button" onclick="location.href='details.html'">Back</button>
+            <input class="button" type="submit" value="Retrieve">
+        </center>
+	</form>       
+</body>
+</html>  

@@ -1,0 +1,24 @@
+<html>    
+<head>
+    <style>
+        h2{margin-top:175px;}		
+        form{width:400px;border-radius:20px;}
+        .button{width:20%;}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Exam Registration System</h2>
+    <h3>Registration form</h3>
+	<form name="form3" enctype="multipart/form-data" method="post" action="http://localhost:8080/ERS/form3">
+        <label for="photo">Upload photo</label>
+        <input class="file" type="file" id="photo" name="photo" required>
+        
+        <br><br><label for="sign">Upload Signature</label>
+        <input class="file" type="file" id="sign" name="sign" required>
+        
+        <br><br>
+        <center><input class="button" type="submit" value="Register"></center>
+    </form>       
+</body>
+</html>

@@ -1,0 +1,83 @@
+body{
+    text-align:center;
+    font-size:22px;
+    font-family:Calibri;    
+    background-image:linear-gradient(45deg,blue,red);
+}
+
+form,div{
+    border:3px solid whitesmoke;
+    margin:auto;
+    text-align:left;
+    padding:20px;    
+    background-color:whitesmoke;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.field,.file{
+    float:right;
+    margin-right:10px;
+}
+
+h2,h3{color:whitesmoke;}
+
+.field,select{width:165px;height:25px;}
+.file{width:180px;height:25px;}
+
+.button{
+    background-color:dodgerblue;
+    margin:auto;
+    margin-bottom:10px;
+    border:none;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    padding:10px;
+    outline:none;
+    display:inline-block;
+    cursor:pointer;
+}
+
+.tab{
+    background-color:dodgerblue;
+    margin:auto;
+    margin-bottom:5px;
+    height:50px;
+    width:170px;
+    border:none;    
+    text-decoration:none;
+    color:white;
+    padding:10px;
+    outline:none;
+    display:inline-block;
+    cursor:pointer;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);   
+}
+
+a{text-decoration:none;color:black;}
+
+a:visited{color:black;}
+
+table,th,td{    
+    border-collapse:collapse;        
+    background-color:whitesmoke;    
+}
+
+table{
+    margin:auto;
+    cursor:pointer;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+th,td{
+    border: 1px solid black;
+    padding:8px;
+    text-align:left;
+}
+
+th{
+    padding-top:12px;
+    padding-bottom:12px;
+    color:white;
+    background-color:Black;
+}

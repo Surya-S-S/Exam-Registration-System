@@ -1,0 +1,94 @@
+<html>    
+<head>
+    <style>
+        h2{margin-top:50px;}		
+        form{width:400px;border-radius:20px;}
+        datalist{overflow:hidden;}
+        .button{width:25%;}        
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="getCourses();getCities()">
+    <h2>Exam Registration System</h2>
+    <h3>Registration form</h3>
+	<form name="form2" method="post" action="http://localhost:8080/ERS/form2">
+        <label for="clg">College Name</label>
+        <input class="field" pattern="[A-Za-z ]{10,40}" type="text" id="clg" name="clg" required>
+        
+        <br><br><label for="course">Course</label>
+        <select class="field" id="course" name="course" onclick="setDate()"></select>
+        
+        <br><br><label for="date">Exam date</label>
+        <input class="field" type="date" id="date" name="date" required>
+        
+        <br><br><label for="sess">Exam session</label>
+        <select class="field" id="sess" name="sess" required>
+            <option value="Morning">Morning Session</option>
+            <option value="Evening">Evening Session</option>
+        </select>
+        
+        <br><br><label>Exam City</label>
+        <br><br><label>1st Preference</label>
+        <input class="field" list="city1" id="pref1" name="pref1">
+        <datalist id="city1"></datalist>
+        <br><br><label>2nd Preference</label>
+        <input class="field" list="city2" id="pref2" name="pref2">
+        <datalist id="city2"></datalist>
+        <br><br><label>3rd Preference</label>
+        <input class="field" list="city3" id="pref3" name="pref3">
+        <datalist id="city3"></datalist>
+        
+        <br><br>
+        <center>
+            <button class="button" type="submit" onclick="location.href='form1.html'">Prev page</button>
+            &emsp;<input class="button" type="submit" value="Next page">
+        </center>
+	</form>
+    <script>
+        function getCourses() {
+            var xhttp;
+			var url = "courseFiller";
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+					document.forms["form2"]["course"].innerHTML=res;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+        function setDate() {
+            var xhttp;
+            var course = document.forms["form2"]["course"].value;
+			var url = "dateSetter?course="+course;
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res = xhttp.responseText;
+					var dates = res.split(" ");
+                    document.getElementById("date").setAttribute("min",dates[0]);
+                    document.getElementById("date").setAttribute("max",dates[1]);
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+        function getCities() {
+            var xhttp;
+			var url = "cityFiller";
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+					document.getElementById("city1").innerHTML=res;
+                    document.getElementById("city2").innerHTML=res;
+                    document.getElementById("city3").innerHTML=res;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+    </script>   
+</body>
+</html>        

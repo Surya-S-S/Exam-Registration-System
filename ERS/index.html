@@ -1,0 +1,54 @@
+<html>
+<head>
+	<style>
+		h2{margin-top:150px;}		
+		form{
+			width:300px;
+			border-bottom-left-radius:20px;
+			border-bottom-right-radius:20px;
+		}	
+		a{font-size:17px;}	
+		.button{width:25%;}
+		#admin{display:none;}
+	</style>
+	<link rel="stylesheet" href="style.css">	
+</head>
+<body>
+	<h2>Exam Registration System</h2>
+	<h3>Login</h3>
+	<button class="tab" type="button" style="border-top-left-radius:20px;" onclick="switchTab1()">Student</button>
+	<button class="tab" type="button" style="border-top-right-radius:20px;" onclick="switchTab2()">Examiner</button>
+	<form id="student" method="post" action="http://localhost:8080/ERS/login">
+		<label for="usrname1">Username </label>
+		<input class="field" type="text" pattern="[A-Za-z0-9_ ]{5,20}" name="usrname1" id="usrname1" required>
+		<br><br><label for="passwd1">Password </label>
+		<input class="field" type="password" pattern="[A-Za-z0-9_]{5,20}" name="passwd1" id="passwd1" required>
+		<br><br>
+		<center>
+			<input class="button" type="submit" value="Login">
+			<br><h4 style="font-size:17px;display:inline;">New user?</h4>
+			<a href="signup.html">SignUp</a>
+		</center>
+	</form>
+	<form id="admin" method="post" action="http://localhost:8080/ERS/admin">
+		<label for="usrname2">Username </label>
+		<input class="field" type="text" pattern="[A-Za-z0-9_ ]{5,20}" name="usrname2" id="usrname2" required>
+		<br><br><label for="passwd2">Password </label>
+		<input class="field" type="password" pattern="[A-Za-z0-9_]{5,20}" name="passwd2" id="passwd2" required>
+		<br><br>
+		<center>
+			<input class="button" type="submit" value="Login">
+		</center>
+	</form>
+	<script>
+		function switchTab1() {
+			document.getElementById("student").style.display="block";
+			document.getElementById("admin").style.display="none";
+		}
+		function switchTab2() {
+			document.getElementById("admin").style.display="block";
+			document.getElementById("student").style.display="none";
+		}
+	</script>
+</body>
+</html>

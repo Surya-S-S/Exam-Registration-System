@@ -1,0 +1,61 @@
+div{
+    border: 2px solid black;
+    font-family:Calibri;
+}
+
+table{
+    margin:auto;
+    margin:1px 10px 10px 10px;
+    width:505px;
+    height:212px;
+    float:left;
+    border-collapse:collapse;
+}
+
+th,td{
+    text-align:left;
+    padding:10px;
+    border:2px solid black;
+}
+
+#ticket{
+    margin:auto;
+    margin-top:200px;
+    width:705px;
+    height:315px;    
+}
+
+#header{
+    text-align:center;
+    margin:10px 10px 10px 10px;            
+    width:680px;
+    height:65px;            
+}
+
+#photopane{
+    margin:auto;
+    margin:0px 10px 10px 530px;
+    width:160px;
+    height:210px;
+}
+
+#photo{width:150px;height:200px;}
+
+body{text-align:center;}
+
+.button{
+    margin:auto;
+    border:1px solid black;
+    border-radius:10px;
+    text-decoration:none;
+    padding:10px;
+    outline:none;
+    display:inline-block;
+    cursor:pointer;
+}
+
+@media print {
+    .button{
+      display:none;
+    }
+}

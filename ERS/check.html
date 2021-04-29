@@ -1,0 +1,54 @@
+<html>
+<head>
+    <style>
+        h2{margin-top:50px;}
+        #photo{width:150px;height:159px;}
+        #sign{width:150px;height:79px;}
+        #header{width:1253px;cursor:pointer;}
+        #data{width:1080px;display:inline-table;}
+        #imgs{width:150px;display:inline-table;}
+        th,td{line-height:30px;}
+        i{font-size:30px;color:white;display:inline;cursor:pointer;}
+        .button{font-size:16px;display:inline-block;}
+    </style>
+    <link rel='stylesheet' href='style.css'>
+    <script src="https://kit.fontawesome.com/9195e06438.js" crossorigin="anonymous"></script>
+</head>
+<body onload="showData()">
+    <h2>Exam Registration System</h2>
+    <h3>Check details</h3>
+    <table id="header"><tr><th>Registration details</th></tr></table>
+    <table id="data"></table>
+    <table id="imgs"></table>
+    <br><br><br>
+    <center>
+        <button class="button" type="button" style="width:8%;" onclick="location.href='cmenu.html'">Back to Menu</button>
+        &emsp;<button class="button" type="button" style="width:6%;" onclick="location.href='payfees.html'">Pay Fees</button>
+    </center>
+    <script>
+        var rid = window.localStorage.getItem("rid");
+        function showData() {            
+            var xhttp;
+			var url = "showData?rid="+rid;
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+					document.getElementById("data").innerHTML = res;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+            showImgs();
+        }
+        function showImgs() {
+            var code="";
+            code += "<tr><th>Student Photo</th></tr>";
+            code += "<tr><td><center><img id='photo' src='getPhoto?rid="+rid+"'></center></td></tr>";
+            code += "<tr><th>Signature</th></tr>";
+            code += "<tr><td><center><img id='sign' src='getSign?rid="+rid+"'></center></td></tr>";
+            document.getElementById("imgs").innerHTML = code;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>    
+<head>
+    <style>
+        h2{margin-top:50px;}		
+        form{width:400px;border-radius:20px;}
+        .button{width:20%;}        
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Exam Registration System</h2>
+    <h3>Registration form</h3>
+	<form name="form1" method="post" action="http://localhost:8080/ERS/form1">
+		<label for="sname">Student Name</label>
+        <input class="field" pattern="[A-Za-z ]{5,20}" type="text" id="sname" name="sname" required>
+        
+        <br><br><label for="dob">Date of birth</label>
+        <input class="field" type="date" id="dob" name="dob" required>
+        
+        <br><br><label for="email">E-mail</label>
+        <input class="field" type="email" id="email" name="email" required>
+        
+        <br><br><label for="gender">Gender</label>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <input type="radio" id="gender" name="gender" value="Male" required>
+        <label for="male">Male</label><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+        <input type="radio" id="gender" name="gender" value="Female" required>    
+        <label for="female">Female</label><br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
+        <input type="radio" id="gender" name="gender" value="Other" required>    
+        <label for="other">Other</label>
+        
+        <br><br><label for="phno">Phone number</label>
+        <input class="field" pattern="[0-9]{10}" type="text" id="phno" name="phno">
+        
+        <br><br><label for="addr">City</label>
+        <input class="field" pattern="[A-Za-z ]{5,20}" type="text" id="addr" name="addr" required>
+        
+        <br><br>
+        <center>
+            <button class="button" type="submit" onclick="location.href='cmenu.html'">Back</button>
+            &emsp;<input class="button" type="submit" value="Next page">
+        </center>
+	</form> 
+</body>
+</html>  

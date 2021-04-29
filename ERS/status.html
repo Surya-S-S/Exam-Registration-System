@@ -1,0 +1,40 @@
+<html>
+<head>
+    <style>
+        h2{margin-top:75px;}
+        h4{color:white;display:inline;}
+        #data{width:45%;display:inline-table;line-height:38px;}
+        i{font-size:35px;color:white;display:inline;cursor:pointer;}
+        .button{width:55px;height:35px;font-size:16px;}
+    </style>
+    <link rel='stylesheet' href='style.css'>
+    <script src="https://kit.fontawesome.com/9195e06438.js" crossorigin="anonymous"></script>
+</head>
+<body onload="showStatus()">
+    <h2>Exam Registration System</h2>
+    <h3>Check status</h3>
+    <table id="data"></table>
+    <br><br>
+    <center>
+    <i class="fas fa-sync-alt" onclick="showStatus()"></i>&nbsp;<h4>Refresh</h4>
+    </center>
+    <script>
+        function ticketDisp(rid) {
+            window.location.href="http://localhost:8080/ERS/hallTicket?rid="+rid;
+        }
+        function showStatus() {
+            var xhttp;
+			var url = "getStatus";
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+					document.getElementById("data").innerHTML=res;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+    </script>
+</body>
+</html>

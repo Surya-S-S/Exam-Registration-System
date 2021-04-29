@@ -1,0 +1,23 @@
+<html>    
+<head>
+    <style>
+        h2{margin-top:200px;}
+        form{width:300px;border-radius:20px;}
+        .button{width:25%;}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Exam Registration System</h2>
+    <h3>Remove Course</h3>
+	<form method="post" action="http://localhost:8080/ERS/delete">
+        <label for="cid">Course Code</label>
+        <input class="field" type="text" id="cid" name="cid" required> 
+        <br><br>
+        <center>
+            <button class="button" type="button" onclick="location.href='details.html'">Back</button>
+            <input class="button" type="submit" value="Remove">
+        </center>
+	</form>       
+</body>
+</html>  

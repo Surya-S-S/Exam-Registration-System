@@ -1,0 +1,31 @@
+<html>    
+<head>
+    <style>
+        h2{margin-top:75px;}		
+        form{width:400px;border-radius:20px;}
+        .button{width:25%;}        
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Exam Registration System</h2>
+    <h3>Add Course</h3>
+	<form method="post" action="http://localhost:8080/ERS/add">
+        <label for="cid">Course Code</label>
+        <input class="field" pattern="[A-Z0-9]{5,10}" type="text" id="cid" name="cid" required>
+		<br><br><label for="cname">Course name</label>
+        <input class="field" pattern="[A-Za-z ]{5,30}" type="text" id="cname" name="cname" required>
+        <br><br><label for="ldor">Registration Due</label>
+        <input class="field" type="date" id="ldor" name="ldor" required>
+        <br><br><label for="sdate">Exam Start date</label>
+        <input class="field" type="date" id="sdate" name="sdate" required>
+        <br><br><label for="edate">Exam End date</label>
+        <input class="field" type="date" id="edate" name="edate" required>
+        <br><br>
+        <center>
+            <button class="button" type="button" onclick="location.href='details.html'">Back</button>
+            <input class="button" type="submit" value="Add Course">           
+        </center>
+	</form>       
+</body>
+</html>  

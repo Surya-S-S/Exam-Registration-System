@@ -1,0 +1,22 @@
+<html>
+<head>
+	<style>
+		h2{margin-top:175px;}		
+		form{width:300px;border-radius:20px;}		
+		.button{width:25%;}
+	</style>
+	<link rel="stylesheet" href="style.css">	
+</head>
+<body>
+	<h2>Exam Registration System</h2>
+	<h3>Student Sign-up</h3>
+	<form name="login" method="post" action="http://localhost:8080/ERS/signup">
+		<label for="usrname">Username </label>
+		<input class="field" type="text" pattern="[A-Za-z0-9_ ]*" name="usrname" id="usrname" required>
+		<br><br><label for="passwd">Password </label>
+		<input class="field" type="password" pattern="[A-Za-z0-9_]{5,20}" name="passwd" id="passwd" required>
+		<br><br>
+		<center><input class="button" type=submit value="Sign-up"></center>
+	</form>
+</body>
+</html>

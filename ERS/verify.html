@@ -1,0 +1,101 @@
+<html>
+<head>
+    <style>
+        h2{margin-top:50px;}
+        #photo{width:150px;height:175px;}
+        #sign{width:150px;height:100px;}
+        #ids{width:753px;cursor:pointer;}
+        #status{width:753px;cursor:pointer;}
+        #data{width:580px;display:inline-table;}
+        #imgs{width:150px;display:inline-table;}
+        i{font-size:30px;color:white;display:inline;cursor:pointer;}
+        .button{width:100%;font-size:20px;}
+    </style>
+    <link rel='stylesheet' href='style.css'>
+    <script src="https://kit.fontawesome.com/9195e06438.js" crossorigin="anonymous"></script>
+</head>
+<body onload="showIds()">
+    <h2>Exam Registration System</h2>
+    <h3>Verify Student details</h3>
+    <table id="ids"></table>
+    <table id="status"></table>
+    <table id="data"></table>
+    <table id="imgs"></table>
+    <br><br>
+    <center>
+    <i class="fas fa-check-circle" onclick="verify()"></i>
+    &emsp;<i class="fas fa-sync-alt" onclick="showIds()"></i>
+    &emsp;<i class="fas fa-times-circle" onclick="reject()"></i>       
+    </center>
+    <script>
+        var curr;
+        function showIds() {
+			var xhttp;
+			var url = "getIds";
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+					document.getElementById("ids").innerHTML=res;
+                    document.getElementById("status").innerHTML="";
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+		}
+        function showData(rid) {
+            showImgs(rid);
+            var xhttp;
+            curr = rid;
+			var url = "getData?rid="+rid;
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+					document.getElementById("data").innerHTML=res;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+        function showImgs(rid) {
+            var code="";
+            code += "<tr><th>Student Photo</th></tr>";
+            code += "<tr><td><center><img id='photo' src='getPhoto?rid="+rid+"'></center></td></tr>";
+            code += "<tr><th>Signature</th></tr>";
+            code += "<tr><td><center><img id='sign' src='getSign?rid="+rid+"'></center></td></tr>";
+            document.getElementById("imgs").innerHTML = code;
+        }
+        function verify() {
+            var xhttp;
+            var url = "verify?rid="+curr;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+                    document.getElementById("data").innerHTML="";
+                    document.getElementById("imgs").innerHTML="";
+					document.getElementById("status").innerHTML=res;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+        function reject() {
+            var xhttp;
+            var url = "reject?rid="+curr;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+                    document.getElementById("data").innerHTML="";
+                    document.getElementById("imgs").innerHTML="";
+					document.getElementById("status").innerHTML=res;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+    </script>
+</body>
+</html>

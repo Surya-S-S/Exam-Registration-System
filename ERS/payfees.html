@@ -1,0 +1,114 @@
+<html>
+<head>
+    <style>
+        h2{margin-top:75px;}        
+        h4{display:inline;}
+        #amount{width:275px;border-radius:10px;}
+        .mybutton{width:6%;font-size:16px;display:inline-block;}
+    </style>
+    <link rel='stylesheet' href='card.css'>
+</head>
+<body onload="getAmount()">
+    <h2>Exam Registration System</h2>
+    <h3>Fee Payment</h3>
+    <div id="amount">
+        <label>Registered Exams</label><input class="field" type="text" id="count" name="count" readonly>
+        <br><br><label>Total Amount</label><input class="field" type="text" id="fees" name="fees" readonly>
+    </div>
+    <form onsubmit="paid()" action="cmenu.html">
+        <div class="card front">
+            <div class="card-provider">
+                <div class="visa c-image">
+                    <img src="https://i.imgur.com/NN9t7UH.png" alt="visa">
+                </div>
+                <div class="mastercard c-image">
+                    <img src="https://i.imgur.com/bma7TBS.png" alt="mastercard">
+                </div>
+            </div>
+            <div class="card-number-wrap">
+                <label class="input-title" for="c-number">Card Number*</label>
+                <input type="text" name="c-number" id="c-number" class="input-field card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="16" required>
+            </div>
+            <div class="cardholder-name-wrap">
+                <label for="c-name" class="input-title cardholder-name">Name on card*</label>
+                <input type="text" name="c-number" id="c-name" class="input-field cardholder-name" placeholder="John Doe" required>
+            </div>
+            <div class="card-expiry-wrap">
+                <label class="input-title">Expiry Date*</label>
+                <div class="custom-dropdown">
+                    <select name="month" class="input-field options">
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </div>
+                <div class="custom-dropdown">
+                    <select name="year" class="input-field options">
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                        <option>32</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="card back">
+            <div class="black-stripe"></div>
+            <div class="cvv-wrap">
+                <label for="cvv-code" class="input-title">CVV Code*</label>
+                <input type="text" class="input-field cvv-code" id="cvv-code" placeholder="000" maxlength="3" required>
+            </div>
+            <div class="disclaimer"></div>
+        </div><br><br>
+        <center>
+            <input class="mybutton" type="submit" value="Pay Fees">
+        </center>
+    </form>
+    <script>
+        function getAmount() {
+            var xhttp;
+			var url = "getAmount";
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+					document.getElementById("count").value=res;
+                    document.getElementById("fees").value="Rs. "+res*1000+"/-";
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+        }
+        function paid() {
+            var xhttp;
+			var url = "payment";
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if(this.readyState==4 && this.status==200) {
+					var res=xhttp.responseText;
+				}
+			};
+			xhttp.open("GET",url,true);
+			xhttp.send();
+            window.alert("Payment Successful");
+        }
+    </script>
+</body>
+</html>
